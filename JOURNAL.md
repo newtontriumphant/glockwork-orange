@@ -2,7 +2,7 @@ Made by: @zsharpminor // gh/newtontriumphant // udo funke
 
 Repository link: https://github.com/newtontriumphant/glockwork-orange/
 
-Total hours so far: 5.0
+Total hours so far: 13.0
 
 # GLOCKWORK ORANGE - THE JOURNAL
 
@@ -124,3 +124,63 @@ Anyways, after some Fusion Magic™️ (and changing WAY too many lines to const
 There's a bit of an offset issue - but that can easily be fixed later. See ya tonight! :D
 
 - [x] 3D model the solenoid holder
+
+## [06/24/26 | 4.0 hours]
+
+### The PCB Schematic!
+
+I've procrastinated this for wayy too long. After doing some intense research, I figured out it would be best if I used a 15V power supply and had 10 PCBs which each fed to 3 solenoids, for a total of 30 solenoids. For a 15V schematic, I need a boatload of 2N3904 transistors, though. Let's get to it!
+
+![schem1](https://cdn.hackclub.com/019efcd0-ae68-7e45-a850-c60c058c2212/Screenshot%202026-06-24%20at%208.26.33%E2%80%AFPM.png)
+
+I have a plan. It may not seem like it now, but I do. I promise :3
+
+I then proceeded to spend an ENTIRE HOUR researching MOSFETs. No, I'm not joking. The original MOSFET I had thought of for this project was unfortunately discontinued and therefore way too expensive, but I found a pretty good drop-in replacement: the IRF530NPBF and IRLZ44NBPF would both be good options - the 530 would require a step-up, though, so I ultimately went with the IRLZ44N.
+
+I also subtly stole the idea of having a hardware-coded flashing LED from [this project](https://engineering.tamu.edu/news/2019/05/the-autospiel-computer-engineering-students-merge-disciplines-to-automate-music.html). With that, the first draft of the schematic was done:
+
+![schem2](https://cdn.hackclub.com/019effef-3dd9-7076-8a8c-d5d738aad5e2/Screenshot%202026-06-25%20at%2010.58.47%E2%80%AFAM.png)
+
+After running ERC and getting only the usual power pin not driven by output pin lines, I thought I was in the clear, until I double-checked the datasheets and realized I FORGOT the MOST IMPORTANT PART: the 15v net! Also, the capacitors. Caps will always be the death of me, but after some research (and quite a bit of asking Claude), I realized my mistake, and fixed the schematic fully:
+
+![schem3](https://cdn.hackclub.com/019efff7-91c2-75e1-8acf-26b3bc5a9644/Screenshot%202026-06-25%20at%2011.07.52%E2%80%AFAM.png)
+
+After some quick copy-pasting, and the addition of mounting holes and screw terminals to infinitely combine multiple PCBs, I ended up with this (I also realized what PWR_FLAG is actually used for...):
+
+![schemfinal](https://cdn.hackclub.com/019f0001-06cc-740c-9fb7-c1abf7168b04/Screenshot%202026-06-25%20at%2011.18.10%E2%80%AFAM.png)
+
+### Assigning Footprints
+
+I don't know why, but this is always my least favorite part of making a PCB. I usually have to do this like six or seven times over before I get it right, and this wasn't much of an exception: after forty minutes, I finally had a good assignment that I was happy with. Thankfully, I was able to copy and paste most of the footprints. This is also where I locked in M2 as my choice for screws!
+
+![footprints](https://cdn.hackclub.com/019f003e-79e4-7bee-828e-a1ed926fd007/Screenshot%202026-06-25%20at%2012.25.18%E2%80%AFPM.png)
+
+(Yes, I had to make a custom footprint. I hate my wife.)
+
+![pcb1](https://cdn.hackclub.com/019f0040-53d1-720b-b674-f744cd66119c/Screenshot%202026-06-25%20at%2012.27.17%E2%80%AFPM.png)
+
+Hey, that looks pretty decent. I'll get onto the PCB routing tomorrow! :D
+
+## [06/25/26 | 4.0 hours]
+
+### Routing...
+
+I don't even want to describe the pain I'm going through. PCB routing will be the death of me.
+
+![p1](https://cdn.hackclub.com/019f007c-2f45-72e6-aa11-b71edfb1f492/Screenshot%202026-06-25%20at%201.32.41%E2%80%AFPM.png)
+
+yes, I know this layout probably won't work. let my stupid brain at least prove it to myself
+
+![p2](https://cdn.hackclub.com/019f0086-ae13-771b-b573-389c931c8024/Screenshot%202026-06-25%20at%201.44.09%E2%80%AFPM.png)
+
+hold up... maybe it will work after all! lemme fix up my drc and get my silkscreen non-conflicting:
+
+![drc](https://cdn.hackclub.com/019f009b-5e57-7038-aaed-e8b5e43c966c/Screenshot%202026-06-25%20at%202.06.47%E2%80%AFPM.png)
+
+Okay, here's the final routing for now. I'm getting some other people to sanity check it, but for now, four hours later, the PCB is routed! :D
+
+![fpcb](https://cdn.hackclub.com/019f00a0-8d96-7c28-8839-a5dfb8590c4f/Screenshot%202026-06-25%20at%202.12.25%E2%80%AFPM.png)
+
+![pcb3d](https://cdn.hackclub.com/019f00a2-ba3f-70bc-9930-d3b393344285/Screenshot%202026-06-25%20at%202.14.49%E2%80%AFPM.png)
+
+Tomorrow, I can finally get all of this into CAD. :D
