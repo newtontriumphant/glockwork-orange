@@ -2,7 +2,7 @@ Made by: @zsharpminor // gh/newtontriumphant // udo funke
 
 Repository link: https://github.com/newtontriumphant/glockwork-orange/
 
-Total hours so far: 13.0
+Total hours so far: 15.0
 
 # GLOCKWORK ORANGE - THE JOURNAL
 
@@ -184,3 +184,51 @@ Okay, here's the final routing for now. I'm getting some other people to sanity 
 ![pcb3d](https://cdn.hackclub.com/019f00a2-ba3f-70bc-9930-d3b393344285/Screenshot%202026-06-25%20at%202.14.49%E2%80%AFPM.png)
 
 Tomorrow, I can finally get all of this into CAD. :D
+
+## [06/26/26 | 2.0 hours]
+
+### Modeling the PCB Holders
+
+![pcbmodel](https://cdn.hackclub.com/019f0713-5e10-76ee-ac63-0468bde2a9dd/Screenshot%202026-06-26%20at%208.15.23%E2%80%AFPM.png)
+
+I began by exporting the PCB as a .STEP file and importing it into Fusion. I then took some measurements and began my work on the PCB holder (see above.) The PCB is going to be mounted to this holder with 4 M2 screws, and a crap ton of M2 screws will be used in this assembly. Since my PCB had some signal wires on the bottom, as well as some hefty MOSFET leads, I had to make some additional cutouts:
+
+![cutoutone](https://cdn.hackclub.com/019f0718-ec12-72bc-a1cc-b2626b7cf78c/Screenshot%202026-06-26%20at%208.21.38%E2%80%AFPM.png)
+
+![cutouttwo](https://cdn.hackclub.com/019f071b-3c83-7636-9cf1-1cf4454d677f/Screenshot%202026-06-26%20at%208.24.09%E2%80%AFPM.png)
+
+Then, the PCB holder was done! I settled for an interlocking design so that I could keep rowing these together! :D
+
+![interlocking](https://cdn.hackclub.com/019f071f-0c32-7bab-8173-c3651432c9cf/Screenshot%202026-06-26%20at%208.28.16%E2%80%AFPM.png)
+
+The final PCB holder was as follows:
+
+![pcbholderfinal1](https://cdn.hackclub.com/019f0722-7bd3-7151-8da4-59985f765a7c/Screenshot%202026-06-26%20at%208.32.03%E2%80%AFPM.png)
+
+![pcbholderfinal2](https://cdn.hackclub.com/019f0722-a4ba-7e0b-897a-2681e045cd07/Screenshot%202026-06-26%20at%208.32.16%E2%80%AFPM.png)
+
+With that done, I was finally able to get over to the master assembly!
+
+### Assembly, Part One
+
+After about 30 minutes, I was able to get all the PCBs in place. My plan is to screw all of this into a plywood surface, maybe an old desk or a plywood panel, something like this:
+
+![plywoodpanel](https://i5.walmartimages.com/asr/3a0db82c-44aa-40fd-a24b-f473ea6acc01.84121b1dbe6053e71265afc7d6bfde7c.jpeg)
+
+Anyways, I need to find a model for that in Fusion. Before we get there, here's what I got so far:
+
+![assembled1](https://cdn.hackclub.com/019f0734-bf0f-7505-9431-86d4befae2db/Screenshot%202026-06-26%20at%208.51.58%E2%80%AFPM.png)
+
+The plan here is to power everything with an Arduino Mega 2560 and have the cables routed underneath the PCBs, where there's some wiggle room in between the screw mounts and the plywood. The whole project is definitely coming back together now! Let me find that checklist that I put together a few days ago...
+
+- [x] Find a working solenoid
+- [x] Find a working glockenspiel
+- [x] 3D model the solenoid holder
+- [x] Schematic for PCB
+- [x] Routing for PCB
+- [ ] 3D model the glock holder
+- [ ] Find a way to power the solenoids
+- [ ] Write a compelling README
+- [ ] ship :3
+
+Well, hey, we're almost there! I also know just what I'll use for the power - I'm taking inspiration from a similar self-playing project that uses a [Meanwell AC/DC converter](https://www.digikey.com/en/products/detail/mean-well-usa-inc/LRS-200-15/7705023) as opposed to a bench power supply, and I think that it would look dope on a plywood panel, so I'm going for that. First thing tomorrow, I'm going to incorporate this into my design! Until next time! :D 
