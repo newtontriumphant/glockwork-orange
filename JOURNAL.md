@@ -2,11 +2,11 @@ Made by: @zsharpminor // gh/newtontriumphant // udo funke
 
 Repository link: https://github.com/newtontriumphant/glockwork-orange/
 
-Total hours so far: 15.0
+Total hours so far: 22.0
 
 # GLOCKWORK ORANGE - THE JOURNAL
 
-[placeholder, insert finished schem image here]
+![gwofinal](https://cdn.hackclub.com/019f0a6f-521d-7b25-ba26-27f3b5d925e2/Screenshot%202026-06-27%20at%2011.54.52%E2%80%AFAM.png)
 
 ## [06/13/26 | 2.0 hours]
 
@@ -232,3 +232,117 @@ The plan here is to power everything with an Arduino Mega 2560 and have the cabl
 - [ ] ship :3
 
 Well, hey, we're almost there! I also know just what I'll use for the power - I'm taking inspiration from a similar self-playing project that uses a [Meanwell AC/DC converter](https://www.digikey.com/en/products/detail/mean-well-usa-inc/LRS-200-15/7705023) as opposed to a bench power supply, and I think that it would look dope on a plywood panel, so I'm going for that. First thing tomorrow, I'm going to incorporate this into my design! Until next time! :D 
+
+## [06/27/26 | 7.0 hours]
+
+### Modeling the Plywood, Glock Holder, and PSU
+
+The plywood was simple - Fusion appearances are great. I went with 60x60cm, which is the 24x24 inch format that can be found literally anywhere.
+
+Then, I proceeded to grab the 3D models of the PSU, Arduino Mega 2560, and breadboards I was planning to use, and integrated them into the assembly as well:
+
+![assembled2](https://cdn.hackclub.com/019f0a47-bcd6-75d5-a95f-aa693f96275e/Screenshot%202026-06-27%20at%2011.11.35%E2%80%AFAM.png)
+
+For the glockenspiel itself, my plan is to have it be screwed in from the bottom of the plywood with one really long M2 screw - I'm planning to drill small holes into the bottom wood of the glock itself and use a 3D printed spacer to better accomplish this:
+
+![spacer](https://cdn.hackclub.com/019f0a4c-264c-7d98-bd67-64824f252904/Screenshot%202026-06-27%20at%2011.16.27%E2%80%AFAM.png)
+
+The glockenspiel holder also slots in one of the slots of the solenoid bar (I also went ahead and populated the remaining solenoids that I had already modeled the holders for):
+
+![holderwithsolenoids](https://cdn.hackclub.com/019f0a5b-384d-7879-8026-02c1f4547eb1/Screenshot%202026-06-27%20at%2011.32.49%E2%80%AFAM.png)
+
+### Finalizing Assembly
+
+After another 30 minutes, I was able to complete the assembly! Yay! Every pair of blue dots is a solenoid, and the plan is to have the power from the PSU chain on the PCBs, so the PSU can remain on the far left side of the plywood. As for the arduino, I'll be using standard jumpers that chain through breadboards. Could I have made some sort of flex PCB? Maybe, but it would have been extremely tedious to get all of those cables to fit well.
+
+![assemblyfinal1](https://cdn.hackclub.com/019f0a5e-67f5-7df3-b9fd-cabe9a6d9cc7/Screenshot%202026-06-27%20at%2011.36.23%E2%80%AFAM.png)
+
+Now that everything's done, it's time to transition to getting a polished README, getting all of my files set for submission, and making a BOM and wiring diagram.
+
+### Wiring Diagram
+
+Weird choice to do first, I know, but I want to get it out of the way.
+
+I began by opening up a new Figma document and importing my assembly picture, minus the glockenspiel and plywood. I then drew the first set of lines, connecting the first PCB to the PSU.
+
+![wd1](https://cdn.hackclub.com/019f0a67-57fe-7e02-b0ae-4780c628080a/Screenshot%202026-06-27%20at%2011.46.08%E2%80%AFAM.png)
+
+After 20 minutes of drawing blue lines on a trackpad (my hand hurts), the (admittedly sloppy) wiring diagram was done. Well, it made sense in my head.
+
+![wdf](https://cdn.hackclub.com/019f0a6e-87e9-72d6-88d8-a967ec97f50e/Screenshot%202026-06-27%20at%2011.53.59%E2%80%AFAM.png)
+
+### CAD and Gerber Files
+
+I want this repo to be extremely organized, so I'm going to be very organized with my file naming as well. To begin with, I reopened my PCB in KiCad and exported my Gerbers so that I could make a production folder for my repo.
+
+![exportgerbers](https://cdn.hackclub.com/019f0a72-6349-7eef-9b7e-841b8bf278dc/Screenshot%202026-06-27%20at%2011.58.11%E2%80%AFAM.png)
+
+Well, that was easier than even I expected it to be!
+
+![gerbers](https://cdn.hackclub.com/019f0a73-baaa-7bca-9f6f-f7ee055e6029/Screenshot%202026-06-27%20at%2011.59.42%E2%80%AFAM.png)
+
+Now onto the CAD... the FUN STUFF! /j it's taking 30 seconds to EVEN PROCESS a single export i hate fusion, my poor m2 macbook air is burning hot to the touch :pf:
+
+Anyways, after a literal 30 minutes of waiting, I was able to get all the files I needed. @/1mon confirmed that I didn't need .f3d files of every single component, only a .f3z of the assembly in addition to the .STEPs:
+
+![1moniloveyouyouresuchacutiepiefemboyplscmereandletmecuddleyoualsoifyouseethisdmmefemboyonslackpls](https://cdn.hackclub.com/019f0a96-2618-7613-a4c2-258d9d8360f7/Screenshot%202026-06-27%20at%2012.37.17%E2%80%AFPM.png)
+
+![cadexports](https://cdn.hackclub.com/019f0a96-d6a5-78fa-a34b-533807c152c9/Screenshot%202026-06-27%20at%2012.38.02%E2%80%AFPM.png)
+
+### README
+
+Onto The Readme! I'm just going to put an image or two here and you can check out the commit diff for what was changed. TL;DR, added screenshots of files and explained basically everything in this JOUNRAL! :D
+
+Here's a picture in-progress:
+
+![readme1](https://cdn.hackclub.com/019f0ab9-7c7e-741f-81d5-9d3cdd564b9b/Screenshot%202026-06-27%20at%201.15.51%E2%80%AFPM.png)
+
+I also made a cool directory showcasing this repo off:
+
+![readme2](https://cdn.hackclub.com/019f0ac3-a597-73fa-ba76-13b110a696f3/Screenshot%202026-06-27%20at%201.26.55%E2%80%AFPM.png)
+
+### BOM
+
+Okay, this part is going to take a WHILE. 
+
+I'm taking some inspiration from other projects I've seen, but mostly, all I need is a Glockenspiel, a piece of plywood, some cables, and a crap-ton of electronics.
+
+Plywood panels are always fun to look at, and I went with the cheapest one that didn't look like it came off the back of an IKEA bunk bed:
+
+![plywood](https://cdn.hackclub.com/019f0ac5-c22c-7874-90f1-f0d867e1d755/Screenshot%202026-06-27%20at%201.29.15%E2%80%AFPM.png)
+
+Here's a sneak peak at the BOM so far:
+
+![bom1](https://cdn.hackclub.com/019f0b0b-04b6-7955-b5d7-81d973f6e440/Screenshot%202026-06-27%20at%202.44.55%E2%80%AFPM.png)
+
+This is gonna get really expensive really quickly...
+
+Anyways, I did not use ANY AI for this project, except for finding a good transistor and capacitor, so now it finally gets to be used:
+
+![comet](https://cdn.hackclub.com/019f0b0b-edf0-7993-88f7-30344c44959b/Screenshot%202026-06-27%20at%202.08.57%E2%80%AFPM.png)
+
+Oh, how I love Perplexity Comet's "free" trial... anyways, for legal purposes I'm definitely doing nothing illegal at all.
+
+Okay, the BOM is done. I feel bad for the Outpost team... I wonder if this'll get approved. I hope they weren't joking with the $1000 max funding!
+
+P.S. When I say I spent seven hours on this project today, I'm not joking. I started this at 8:12 AM and it's already (SOMEHOW) 3:20 PM! If you doubt me, check the times all of the screenshots were taken (it's in the CDN name!)
+
+The BOM itself took me TWO HOURS!
+
+### Firmware
+
+I'm going to use a simple Python GUI and `mido` as well as `pyserial` to interface with the Arduino's `ino` code.
+
+![code1](https://cdn.hackclub.com/019f0b28-1298-7ddb-8012-726b75053b8a/Screenshot%202026-06-27%20at%203.16.37%E2%80%AFPM.png)
+
+At its heart, the code is really simple, all it does is define the keys in an array and define a StrikeEvent that sends a signal to the MOSFET.
+
+**PLEASE NOTE**: The Python GUI code is partially AI-assisted. I have tested it to the best of my ability and it works, but once I receive the PCB I will make major tweaks to this firmware. Thanks!
+
+### The End?
+
+[cue Minecraft Achievement]
+
+It's definitely far from the end, as I'll probably spend about 50 hours actually building this, rewriting the firmware once I realize that the PCB doesn't work as expected, and redoing one or two CAD pieces because I didn't get the dimensions accurate enough.
+
+Until then, farewell. sharp out >:3c
