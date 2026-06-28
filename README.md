@@ -62,10 +62,12 @@ Please excuse ~~my dear aunt sally~~ the sloppy wiring, this is only supposed to
 
 ![wiring diagram](Assets/wiring_diagram.png "Wiring Diagram")
 
+```
 +15V --> Red
 Shared GND --> Black
 Solenoid +/- --> Green
 Arduino Signal --> Blue
+```
 
 ## Firmware
 
@@ -79,6 +81,7 @@ How did I make Glockwork Orange? The entire process is in [JOURNAL.md](JOURNAL.m
 
 ## Directory
 
+```
 .
 ├── Assets/ <-- Some of the most important images found in this README
 ├── CAD/ <-- All CAD source files, as well as a .f3z Archive
@@ -88,6 +91,7 @@ How did I make Glockwork Orange? The entire process is in [JOURNAL.md](JOURNAL.m
 ├── BOM.csv <-- All components required to build this monstrosity
 ├── JOURNAL.md <-- Detailed explanation and tracking of hours
 └── README.md <-- This file!
+```
 
 ## Mini BOM
 
